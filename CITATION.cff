@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: BioX
+message: If you use this software, please cite it as below.
+authors:
+  - given-names: Rahul
+    family-names: Brahma
+license: MIT
+version: 0.1.0
+repository-code: https://github.com/takshan/biox

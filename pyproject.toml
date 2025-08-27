@@ -1,0 +1,107 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "biox"
+version = "0.0.1"
+description = "BioX: A foundation for reproducible bioinformatics tooling"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Rahulk Brahma", email = "rahu.brahma@uni-greifswald.de" }
+]
+maintainers = [
+  { name = "Rahulk Brahma", email = "rahu.brahma@uni-greifswald.de" }
+]
+keywords = ["bioinformatics", "biology", "science", "toolkit", "biox"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+ [project.optional-dependencies]
+ dev = [
+   "pytest>=8.0",
+   "coverage>=7.4",
+   "ruff>=0.6",
+   "mypy>=1.10",
+   "pre-commit>=3.7",
+   "build>=1.2",
+ ]
+
+[project.urls]
+Homepage = "https://github.com/takshan/biox"
+Documentation = "https://github.com/takshan/biox#readme"
+Source = "https://github.com/takshan/biox"
+Issues = "https://github.com/takshan/biox/issues"
+Changelog = "https://github.com/takshan/biox/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/biox/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/biox", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/biox"]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+  "E","F","W",   # pycodestyle/pyflakes
+  "I",              # import sorting
+  "N",              # pep8-naming
+  "UP",             # pyupgrade
+  "B",              # bugbear
+  "C90",            # mccabe complexity
+  "S",              # flake8-bandit (security)
+]
+ignore = ["E203", "E266", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+warn_unused_configs = true
+mypy_path = "src"
+namespace_packages = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+addopts = "-ra -q --strict-markers --strict-config --maxfail=1 --disable-warnings"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["biox"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true
+
+[tool.coverage.paths]
+source = ["src/biox", "*/site-packages/biox"]
