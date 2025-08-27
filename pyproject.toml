@@ -3,8 +3,8 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "biox"
-version = "0.0.1"
+name = "bioxai"
+version = "0.0.2"
 description = "BioX: A foundation for reproducible bioinformatics tooling"
 readme = "README.md"
 requires-python = ">=3.9"

@@ -9,12 +9,12 @@ BioX is a modern, production-grade Python package scaffold for reproducible bioi
 - Pytest + Coverage configuration
 - Pre-commit hooks
 - GitHub Actions CI for tests, lint, type-checking
-- Trusted publishing to PyPI via OIDC (no secrets required)
+- Publishing to PyPI via GitHub Actions (API token) or Twine
 
 ## Installation
 
 ```bash
-pip install biox
+pip install bioxai
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ pytest
 
 1. Update `CHANGELOG.md` and bump `__version__` in `src/biox/__init__.py`.
 2. Create a git tag like `v0.1.0` and push.
-3. GitHub Actions will build and publish to PyPI using trusted publishing.
+3. GitHub Actions will build and publish to PyPI if `PYPI_API_TOKEN` is configured in repo secrets, or publish locally with Twine.
 
 ## License
 
