@@ -6,7 +6,6 @@ on:
       - "v*"
 
 permissions:
-  id-token: write
   contents: read
 
 jobs:
@@ -25,4 +24,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.10.3
         with:
           verbose: true
-          # For trusted publishing, configure PyPI project to trust your GitHub org/repo.
+          password: ${{ secrets.PYPI_API_TOKEN }}
