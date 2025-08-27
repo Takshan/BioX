@@ -3,11 +3,11 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "bioxai"
+name = "bioxaiai"
 version = "0.0.2"
-description = "BioX: A foundation for reproducible bioinformatics tooling"
+description = "bioxai: A foundation for reproducible bioinformatics tooling"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 license = { file = "LICENSE" }
 authors = [
   { name = "Rahulk Brahma", email = "rahu.brahma@uni-greifswald.de" }
@@ -15,7 +15,7 @@ authors = [
 maintainers = [
   { name = "Rahulk Brahma", email = "rahu.brahma@uni-greifswald.de" }
 ]
-keywords = ["bioinformatics", "biology", "science", "toolkit", "biox"]
+keywords = ["bioinformatics", "biology", "science", "toolkit", "bioxai"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",
@@ -23,9 +23,6 @@ classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
@@ -42,25 +39,25 @@ dependencies = []
  ]
 
 [project.urls]
-Homepage = "https://github.com/takshan/biox"
-Documentation = "https://github.com/takshan/biox#readme"
-Source = "https://github.com/takshan/biox"
-Issues = "https://github.com/takshan/biox/issues"
-Changelog = "https://github.com/takshan/biox/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/takshan/bioxai"
+Documentation = "https://github.com/takshan/bioxai#readme"
+Source = "https://github.com/takshan/bioxai"
+Issues = "https://github.com/takshan/bioxai/issues"
+Changelog = "https://github.com/takshan/bioxai/blob/main/CHANGELOG.md"
 
 [tool.hatch.version]
-path = "src/biox/__init__.py"
+path = "src/bioxai/__init__.py"
 
 [tool.hatch.build.targets.sdist]
-include = ["src/biox", "README.md", "LICENSE", "CHANGELOG.md"]
+include = ["src/bioxai", "README.md", "LICENSE", "CHANGELOG.md"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/biox"]
+packages = ["src/bioxai"]
 
 [tool.ruff]
 line-length = 100
 src = ["src"]
-target-version = "py39"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = [
@@ -83,7 +80,7 @@ indent-style = "space"
 line-ending = "lf"
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.12"
 strict = true
 warn_unused_configs = true
 mypy_path = "src"
@@ -96,7 +93,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["biox"]
+source = ["bioxai"]
 
 [tool.coverage.report]
 fail_under = 90
@@ -104,4 +101,4 @@ show_missing = true
 skip_covered = true
 
 [tool.coverage.paths]
-source = ["src/biox", "*/site-packages/biox"]
+source = ["src/bioxai", "*/site-packages/bioxai"]

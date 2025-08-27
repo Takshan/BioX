@@ -1,7 +1,7 @@
 import sys
 from io import StringIO
 
-from biox import hello
+from bioxai import hello
 
 
 def test_hello_prints_hello_world() -> None:
